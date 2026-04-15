@@ -1,13 +1,18 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
-function groupByHeadings(wrapper, className) {
+function groupByHeadings(wrapper, className, maxCols) {
   const children = [...wrapper.children];
   const groups = [];
   let current = null;
 
   children.forEach((el) => {
     if (el.tagName === 'H3') {
+      // If we've hit maxCols, merge into the last column instead of creating new
+      if (maxCols && groups.length >= maxCols) {
+        if (current) current.append(el);
+        return;
+      }
       current = document.createElement('div');
       current.className = 'footer-col';
       groups.push(current);
@@ -54,7 +59,7 @@ export default async function decorate(block) {
   // Section 2: 5-col links (Customer Service / Connect / Learn / Work / Stay Connected)
   if (sections[2]) {
     const w = sections[2].querySelector('.default-content-wrapper');
-    if (w) groupByHeadings(w, 'footer-5-cols');
+    if (w) groupByHeadings(w, 'footer-5-cols', 5);
   }
 
   // Section 3: Bottom bar
