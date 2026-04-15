@@ -1,0 +1,29 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "hero-banner",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "full-width linked image banner"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage hero banners", "category landing pages", "promotional splash pages"],
+    "notSuitableFor": ["text-heavy hero sections", "hero with CTA buttons"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

@@ -1,20 +1,286 @@
+/* ===== QVC Footer ===== */
+/* stylelint-disable no-descending-specificity */
+
 footer {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-color);
   background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+}
+
+footer .footer {
+  width: 100%;
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
-
-footer .footer p {
+  max-width: unset;
+  padding: 0;
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+/* The single .section wrapper inside .footer > div */
+footer .footer .section {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+
+footer .footer .section p {
+  margin: 0;
+}
+
+/* ===== Promo Banners (first child, plain div) ===== */
+footer .footer .section > div:first-child {
+  background-color: #fff;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+footer .footer .section > div:first-child > div {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+footer .footer .section > div:first-child > div > p {
+  flex: 1;
+  min-width: 0;
+  line-height: 0;
+}
+
+footer .footer .section > div:first-child > div > p a {
+  display: block;
+  line-height: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+footer .footer .section > div:first-child img,
+footer .footer .section > div:first-child picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 600px) {
+  footer .footer .section > div:first-child > div {
+    gap: 20px;
   }
+}
+
+/* ===== HR separators ===== */
+footer .footer .section > .default-content-wrapper {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+footer .footer .section > .default-content-wrapper hr {
+  border: none;
+  border-top: 1px solid #dce1e3;
+  margin: 24px 0;
+}
+
+/* ===== 3-Column section (Stay in Touch, Manage Account, QCard) ===== */
+footer .footer .section > .columns-wrapper:has(.columns-3-cols) {
+  background-color: #f8f9f9;
+  padding: 25px 0;
+}
+
+footer .footer .columns-3-cols {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+
+footer .footer .columns-3-cols > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+footer .footer .columns-3-cols > div > div {
+  flex: 1;
+  order: unset;
+}
+
+footer .footer .columns-3-cols h3 {
+  font-family: var(--heading-font-family-bold);
+  font-size: var(--body-font-size-m);
+  color: var(--dark-color);
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+footer .footer .columns-3-cols p {
+  margin: 0 0 8px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+}
+
+footer .footer .columns-3-cols a {
+  color: var(--accent-color);
+  font-size: var(--body-font-size-s);
+}
+
+footer .footer .columns-3-cols a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  footer .footer .columns-3-cols > div {
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+/* ===== 5-Column links (Customer Service, Connect, Learn, Work, Stay Connected) ===== */
+
+footer .footer .columns-5-cols {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+
+footer .footer .section > .columns-wrapper:has(.columns-5-cols) {
+  background-color: #ebeeef;
+  padding: 25px 0;
+}
+
+footer .footer .columns-5-cols > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 16px;
+  align-items: start;
+}
+
+footer .footer .columns-5-cols > div > div {
+  order: unset;
+}
+
+footer .footer .columns-5-cols h3 {
+  font-family: var(--heading-font-family-bold);
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+footer .footer .columns-5-cols ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer .footer .columns-5-cols li {
+  margin-bottom: 8px;
+}
+
+footer .footer .columns-5-cols a {
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.6;
+  transition: color 0.15s ease;
+}
+
+footer .footer .columns-5-cols a:hover {
+  color: var(--accent-color);
+}
+
+/* Stay Connected social links & app downloads */
+footer .footer .columns-5-cols > div > div:last-child p {
+  margin: 0 0 12px;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.8;
+}
+
+footer .footer .columns-5-cols > div > div:last-child p a {
+  color: var(--accent-color);
+}
+
+footer .footer .columns-5-cols > div > div:last-child h3:not(:first-child) {
+  margin-top: 16px;
+}
+
+@media (width >= 600px) {
+  footer .footer .columns-5-cols > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  footer .footer .columns-5-cols > div {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ===== HR between sections - carry background colors ===== */
+
+/* HR wrapper between 3-col and 5-col: light gray background */
+footer .footer .section > .default-content-wrapper:nth-child(4) {
+  background-color: var(--light-color);
+}
+
+/* HR wrapper between 5-col and bottom bar: darker gray background */
+footer .footer .section > .default-content-wrapper:nth-child(6) {
+  background-color: #ebeeef;
+}
+
+/* ===== Bottom bar (brands, legal, copyright) ===== */
+footer .footer .section > div:last-child {
+  background-color: #dce1e3;
+  padding: 25px;
+}
+
+footer .footer .section > div:last-child > div {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer .footer .section > div:last-child p {
+  margin: 0 0 8px;
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color);
+  line-height: 1.8;
+}
+
+footer .footer .section > div:last-child p:last-child {
+  margin-bottom: 0;
+  font-size: 11px;
+  color: #6b6b65;
+}
+
+footer .footer .section > div:last-child a {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xs);
+}
+
+footer .footer .section > div:last-child a:hover {
+  color: var(--accent-color);
+}
+
+/* QVC brand text in bottom bar */
+footer .footer .section > div:last-child p:first-child a:first-child {
+  font-family: var(--heading-font-family-bold);
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+  letter-spacing: 1px;
+}
+
+/* Tagline */
+footer .footer .section > div:last-child p:nth-child(2) {
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+  font-style: italic;
+  margin: 12px 0;
 }

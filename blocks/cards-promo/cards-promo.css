@@ -1,0 +1,92 @@
+/* Cards Promo - 4-column promotional grid with images and text */
+
+/* DOM: section.cards-promo > div(card) > div > (div[picture] + div[p>a]) */
+
+main > .cards-promo.section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.cards-promo.section > div {
+  background-color: var(--light-color);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.cards-promo.section > div:hover {
+  box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
+}
+
+/* Image cell */
+.cards-promo.section > div > div > div:first-child {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-promo.section img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cards-promo.section > div:hover img {
+  transform: scale(1.03);
+}
+
+/* Text cell */
+.cards-promo.section > div > div > div:last-child {
+  padding: 16px;
+}
+
+.cards-promo.section > div > div > div:last-child h3,
+.cards-promo.section > div > div > div:last-child h4 {
+  margin: 0 0 8px;
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xs);
+  line-height: 1.3;
+}
+
+.cards-promo.section > div > div > div:last-child p {
+  margin: 0 0 8px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.cards-promo.section > div > div > div:last-child a {
+  color: var(--accent-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cards-promo.section > div > div > div:last-child a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.cards-promo.section strong {
+  color: var(--sale-color);
+}
+
+@media (width >= 600px) {
+  main > .cards-promo.section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (width >= 900px) {
+  main > .cards-promo.section {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .cards-promo.section > div > div > div:last-child {
+    padding: 20px;
+  }
+}

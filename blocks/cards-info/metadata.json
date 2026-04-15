@@ -1,0 +1,29 @@
+{
+  "variantName": "cards-info",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "info-cards",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + heading + description info cards"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["platform/feature info sections", "service description grids", "how-it-works sections"],
+    "notSuitableFor": ["product listings", "image-heavy promotional grids"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

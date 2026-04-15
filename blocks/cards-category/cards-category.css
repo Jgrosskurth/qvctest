@@ -1,0 +1,95 @@
+/* Cards Category - Category icon grid with circular/rounded images */
+
+/* DOM: section.cards-category > div(card) > div > (div[picture] + div[p>a]) */
+
+main > .cards-category.section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.cards-category.section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 8px;
+  transition: transform 0.2s ease;
+}
+
+.cards-category.section > div:hover {
+  transform: translateY(-2px);
+}
+
+.cards-category.section > div a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image cell */
+.cards-category.section > div > div > div:first-child {
+  line-height: 0;
+  margin-bottom: 12px;
+}
+
+.cards-category.section img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--light-color);
+  transition: border-color 0.2s ease;
+}
+
+.cards-category.section > div:hover img {
+  border-color: var(--accent-color);
+}
+
+/* Text cell */
+.cards-category.section > div > div > div:last-child {
+  padding: 0;
+}
+
+.cards-category.section > div > div > div:last-child p {
+  margin: 0;
+  color: var(--dark-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.3;
+}
+
+@media (width >= 600px) {
+  main > .cards-category.section {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .cards-category.section img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .cards-category.section > div > div > div:last-child p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width >= 900px) {
+  main > .cards-category.section {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+
+  .cards-category.section img {
+    width: 112px;
+    height: 112px;
+  }
+
+  .cards-category.section > div > div > div:last-child p {
+    font-size: var(--body-font-size-m);
+  }
+}

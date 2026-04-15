@@ -1,0 +1,29 @@
+{
+  "variantName": "columns-banner",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "promo-banners",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 side-by-side linked promotional images"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["dual promo banner sections", "side-by-side campaign banners", "split hero sections"],
+    "notSuitableFor": ["text-heavy content layouts", "multi-column text content"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

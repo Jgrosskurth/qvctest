@@ -1,0 +1,119 @@
+/* Columns Editorial - 2-column editorial with image + text */
+.columns-editorial > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.columns-editorial > div > div {
+  order: 1;
+}
+
+.columns-editorial > div > .columns-editorial-img-col {
+  order: 0;
+  line-height: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-editorial img {
+  width: 100%;
+}
+
+.columns-editorial > div > .columns-editorial-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Text column */
+.columns-editorial > div > div:not(.columns-editorial-img-col) {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.columns-editorial h2,
+.columns-editorial h3,
+.columns-editorial h4 {
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.columns-editorial h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.columns-editorial h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+.columns-editorial p {
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.columns-editorial a.button {
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: var(--button-border);
+  border-radius: var(--button-radius);
+  padding: var(--button-padding);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  transition: background-color 0.2s ease;
+  align-self: flex-start;
+}
+
+.columns-editorial a.button:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.columns-editorial a.button.secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-color);
+  border: var(--button-secondary-border);
+}
+
+.columns-editorial a.button.secondary:hover {
+  background-color: var(--light-color);
+}
+
+@media (width >= 600px) {
+  .columns-editorial > div > div:not(.columns-editorial-img-col) {
+    padding: 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-editorial > div {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .columns-editorial > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-editorial > div > .columns-editorial-img-col {
+    flex: 1 1 50%;
+  }
+
+  .columns-editorial > div > .columns-editorial-img-col img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .columns-editorial > div > div:not(.columns-editorial-img-col) {
+    flex: 1 1 50%;
+    padding: 40px 48px;
+  }
+}

@@ -1,1 +1,679 @@
 /* add global styles that can be loaded post LCP here */
+/* stylelint-disable no-descending-specificity */
+
+/* ===== Hero Banner - Full-width linked image banner ===== */
+
+/* DOM: section.hero-banner > div > div > div > p > a > picture > img */
+
+main > .hero-banner.section {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-banner.section {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero-banner.section picture {
+  display: block;
+  width: 100%;
+}
+
+.hero-banner.section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero-banner.section a {
+  display: block;
+  line-height: 0;
+}
+
+.hero-banner.section p {
+  margin: 0;
+  line-height: 0;
+}
+
+/* ===== Cards Nav - 4-column linked cards ===== */
+
+/* DOM: section.cards-nav > div(card) > div > (div[picture] + div[p>a]) */
+
+main > .cards-nav.section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.cards-nav.section > div {
+  background-color: var(--background-color);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.cards-nav.section > div:hover {
+  box-shadow: 0 2px 12px rgb(0 0 0 / 12%);
+}
+
+.cards-nav.section > div a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cards-nav.section > div > div > div:first-child {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-nav.section img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cards-nav.section > div:hover img {
+  transform: scale(1.03);
+}
+
+.cards-nav.section > div > div > div:last-child {
+  padding: 12px;
+}
+
+.cards-nav.section > div > div > div:last-child p {
+  margin: 0;
+  color: var(--dark-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (width >= 600px) {
+  main > .cards-nav.section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (width >= 900px) {
+  main > .cards-nav.section {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .cards-nav.section > div > div > div:last-child p {
+    font-size: var(--body-font-size-m);
+  }
+}
+
+/* ===== Hero TSV - Today's Special Value ===== */
+
+/* DOM: section.hero-tsv > div > div > (div[picture] + div[text]) */
+
+main > .hero-tsv.section {
+  max-width: unset;
+  padding: 0;
+  margin-top: var(--section-spacing);
+  margin-bottom: var(--section-spacing);
+}
+
+.hero-tsv.section {
+  background-color: var(--promo-bg);
+}
+
+.hero-tsv.section > div > div {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.hero-tsv.section > div > div > div:first-child {
+  line-height: 0;
+}
+
+.hero-tsv.section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-tsv.section > div > div > div:last-child {
+  padding: 24px;
+}
+
+.hero-tsv.section h1,
+.hero-tsv.section h2,
+.hero-tsv.section h3 {
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  margin-top: 0;
+}
+
+.hero-tsv.section h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.hero-tsv.section p {
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.hero-tsv.section em {
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.hero-tsv.section strong {
+  color: var(--sale-color);
+}
+
+.hero-tsv.section s {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: var(--body-font-size-s);
+}
+
+.hero-tsv.section .button-wrapper {
+  margin-top: 16px;
+}
+
+.hero-tsv.section a.button {
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: var(--button-border);
+  border-radius: var(--button-radius);
+  padding: var(--button-padding);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  text-transform: none;
+  transition: background-color 0.2s ease;
+}
+
+.hero-tsv.section a.button:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+@media (width >= 600px) {
+  .hero-tsv.section > div > div > div:last-child {
+    padding: 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero-tsv.section > div > div {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .hero-tsv.section > div > div > div:first-child {
+    flex: 1 1 55%;
+  }
+
+  .hero-tsv.section > div > div > div:last-child {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 48px;
+  }
+
+  .hero-tsv.section img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ===== Cards Promo - 4-column promotional grid ===== */
+
+/* DOM: section.cards-promo > div(card) > div > (div[picture] + div[p>a]) */
+
+main > .cards-promo.section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.cards-promo.section > div {
+  background-color: var(--light-color);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.cards-promo.section > div:hover {
+  box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
+}
+
+.cards-promo.section > div > div > div:first-child {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-promo.section img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cards-promo.section > div:hover img {
+  transform: scale(1.03);
+}
+
+.cards-promo.section > div > div > div:last-child {
+  padding: 12px;
+}
+
+.cards-promo.section > div > div > div:last-child h3,
+.cards-promo.section > div > div > div:last-child h4 {
+  margin: 0 0 8px;
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xs);
+  line-height: 1.3;
+}
+
+.cards-promo.section > div > div > div:last-child p {
+  margin: 0 0 8px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.cards-promo.section > div > div > div:last-child a {
+  color: var(--accent-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cards-promo.section > div > div > div:last-child a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.cards-promo.section strong {
+  color: var(--sale-color);
+}
+
+@media (width >= 600px) {
+  main > .cards-promo.section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (width >= 900px) {
+  main > .cards-promo.section {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .cards-promo.section > div > div > div:last-child {
+    padding: 20px;
+  }
+}
+
+/* ===== Carousel Product - Product carousel/grid ===== */
+
+/* DOM: section.carousel-product > div(product) > div > (div[picture] + div[h3+p+p]) */
+
+main > .carousel-product.section {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-product.section::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-product.section > div {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.carousel-product.section > div > div > div:first-child {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: 16px;
+}
+
+.carousel-product.section picture {
+  display: block;
+  width: 100%;
+}
+
+.carousel-product.section img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.carousel-product.section > div > div > div:last-child {
+  width: 100%;
+  text-align: center;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.carousel-product.section h3,
+.carousel-product.section h4 {
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.carousel-product.section p {
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.carousel-product.section strong {
+  color: var(--sale-color);
+  font-size: var(--body-font-size-m);
+}
+
+.carousel-product.section s {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: var(--body-font-size-s);
+}
+
+.carousel-product.section a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: var(--body-font-size-s);
+}
+
+.carousel-product.section a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
+  .carousel-product.section > div {
+    flex: 0 0 50%;
+  }
+}
+
+@media (width >= 900px) {
+  .carousel-product.section > div {
+    flex: 0 0 25%;
+    padding: 20px;
+  }
+}
+
+/* ===== Columns Banner - 2-column side-by-side promos ===== */
+
+/* DOM: section.columns-banner > div > div > (div[a>picture+text] + div[a>picture+text]) */
+
+.columns-banner.section > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-banner.section > div > div > div {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.columns-banner.section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.columns-banner.section > div > div > div:hover img {
+  transform: scale(1.02);
+}
+
+.columns-banner.section a {
+  display: block;
+  line-height: 1.4;
+  color: var(--dark-color);
+  text-decoration: none;
+  font-size: var(--body-font-size-s);
+}
+
+@media (width >= 600px) {
+  .columns-banner.section > div > div {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .columns-banner.section > div > div > div {
+    flex: 1;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-banner.section > div > div {
+    gap: 24px;
+  }
+}
+
+/* ===== Cards Category - Category icon grid with circular images ===== */
+
+/* DOM: section.cards-category > div(card) > div > (div[picture] + div[p>a]) */
+
+main > .cards-category.section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cards-category.section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 8px;
+  transition: transform 0.2s ease;
+}
+
+.cards-category.section > div:hover {
+  transform: translateY(-2px);
+}
+
+.cards-category.section > div a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cards-category.section > div > div > div:first-child {
+  line-height: 0;
+  margin-bottom: 12px;
+}
+
+.cards-category.section img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--light-color);
+  transition: border-color 0.2s ease;
+}
+
+.cards-category.section > div:hover img {
+  border-color: var(--accent-color);
+}
+
+.cards-category.section > div > div > div:last-child {
+  padding: 0;
+}
+
+.cards-category.section > div > div > div:last-child p {
+  margin: 0;
+  color: var(--dark-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.3;
+}
+
+@media (width >= 600px) {
+  main > .cards-category.section {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .cards-category.section img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .cards-category.section > div > div > div:last-child p {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width >= 900px) {
+  main > .cards-category.section {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+
+  .cards-category.section img {
+    width: 112px;
+    height: 112px;
+  }
+
+  .cards-category.section > div > div > div:last-child p {
+    font-size: var(--body-font-size-m);
+  }
+}
+
+/* ===== Cards Info - 6-column info cards ===== */
+
+/* DOM: section.cards-info > div(card) > div > (div[picture] + div[h3+p]) */
+
+main > .cards-info.section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.cards-info.section > div {
+  background-color: var(--background-color);
+  border: 1px solid var(--light-color);
+  padding: 24px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s ease;
+}
+
+.cards-info.section > div:hover {
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+}
+
+.cards-info.section > div > div > div:first-child {
+  line-height: 0;
+  margin-bottom: 16px;
+}
+
+.cards-info.section img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.cards-info.section > div > div > div:last-child {
+  padding: 0;
+}
+
+.cards-info.section > div > div > div:last-child h3,
+.cards-info.section > div > div > div:last-child h4,
+.cards-info.section > div > div > div:last-child h5 {
+  margin: 0 0 8px;
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xs);
+  line-height: 1.3;
+}
+
+.cards-info.section > div > div > div:last-child p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.cards-info.section a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.cards-info.section a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
+  main > .cards-info.section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .cards-info.section > div {
+    padding: 28px 20px;
+  }
+}
+
+@media (width >= 900px) {
+  main > .cards-info.section {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+
+  .cards-info.section > div {
+    padding: 32px 16px;
+  }
+
+  .cards-info.section img {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* ===== Hide metadata section ===== */
+main > .metadata.section {
+  display: none;
+}

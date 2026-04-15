@@ -1,0 +1,29 @@
+{
+  "variantName": "hero-tsv",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "featured-product",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + CTA"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["featured product spotlights", "deal of the day sections", "product highlight pages"],
+    "notSuitableFor": ["image-only banners", "text-only hero sections"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

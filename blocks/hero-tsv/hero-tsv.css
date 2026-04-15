@@ -1,0 +1,124 @@
+/* Hero TSV - Today's Special Value side-by-side layout */
+
+/* DOM: section.hero-tsv > div > div > (div[picture] + div[text]) */
+
+.hero-tsv.section {
+  background-color: var(--promo-bg);
+}
+
+main > .hero-tsv.section {
+  max-width: unset;
+  padding: 0;
+  margin-top: var(--section-spacing);
+  margin-bottom: var(--section-spacing);
+}
+
+.hero-tsv.section > div > div {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Image column */
+.hero-tsv.section > div > div > div:first-child {
+  line-height: 0;
+}
+
+.hero-tsv.section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Text column */
+.hero-tsv.section > div > div > div:last-child {
+  padding: 24px;
+}
+
+.hero-tsv.section h1,
+.hero-tsv.section h2,
+.hero-tsv.section h3 {
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  margin-top: 0;
+}
+
+.hero-tsv.section h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.hero-tsv.section p {
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.hero-tsv.section em {
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.hero-tsv.section strong {
+  color: var(--sale-color);
+}
+
+.hero-tsv.section s {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: var(--body-font-size-s);
+}
+
+.hero-tsv.section .button-wrapper {
+  margin-top: 16px;
+}
+
+.hero-tsv.section a.button {
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: var(--button-border);
+  border-radius: var(--button-radius);
+  padding: var(--button-padding);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  text-transform: none;
+  transition: background-color 0.2s ease;
+}
+
+.hero-tsv.section a.button:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+@media (width >= 600px) {
+  .hero-tsv.section > div > div > div:last-child {
+    padding: 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero-tsv.section > div > div {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .hero-tsv.section > div > div > div:first-child {
+    flex: 1 1 55%;
+  }
+
+  .hero-tsv.section > div > div > div:last-child {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 48px;
+  }
+
+  .hero-tsv.section img {
+    height: 100%;
+    object-fit: cover;
+  }
+}

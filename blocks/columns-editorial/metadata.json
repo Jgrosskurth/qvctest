@@ -1,0 +1,29 @@
+{
+  "variantName": "columns-editorial",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "editorial-content",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 editorial cards with image + heading + description"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["editorial content sections", "story/article previews", "brand content features"],
+    "notSuitableFor": ["product listings", "navigation grids"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "variantName": "cards-category",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "category-grid",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "circular icon + category label grid"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["department/category navigation", "icon-based feature grids", "service listing grids"],
+    "notSuitableFor": ["product cards with descriptions", "editorial content cards"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

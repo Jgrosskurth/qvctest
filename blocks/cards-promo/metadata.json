@@ -1,0 +1,29 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "promotional-grid",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + text promotional cards in grid"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["promotional content grids", "deal spotlight sections", "featured category highlights"],
+    "notSuitableFor": ["product listings with pricing", "navigation link grids"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

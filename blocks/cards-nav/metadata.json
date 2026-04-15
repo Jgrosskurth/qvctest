@@ -1,0 +1,29 @@
+{
+  "variantName": "cards-nav",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-10T16:19:39.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.qvc.com/",
+    "originPage": "QVC Homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "navigation-links",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "4 image + text link cards in a row"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["quick navigation sections", "category link grids", "feature highlight rows"],
+    "notSuitableFor": ["product listings", "detailed content cards"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-10T16:19:39.000Z"
+  }
+}

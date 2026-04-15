@@ -1,0 +1,51 @@
+/* Columns Banner - 2-column side-by-side promo images */
+
+/* DOM: section.columns-banner > div > div > (div[a>picture+text] + div[a>picture+text]) */
+
+.columns-banner.section > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columns-banner.section > div > div > div {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.columns-banner.section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.columns-banner.section > div > div > div:hover img {
+  transform: scale(1.02);
+}
+
+.columns-banner.section a {
+  display: block;
+  line-height: 1.4;
+  color: var(--dark-color);
+  text-decoration: none;
+  font-size: var(--body-font-size-s);
+}
+
+@media (width >= 600px) {
+  .columns-banner.section > div > div {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .columns-banner.section > div > div > div {
+    flex: 1;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-banner.section > div > div {
+    gap: 24px;
+  }
+}
