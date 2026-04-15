@@ -3,7 +3,24 @@ import { loadFragment } from '../fragment/fragment.js';
 
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
-function toggleMenu(nav, navSections, forceExpanded = null) {
+const NAV_CATEGORIES = [
+  { label: 'Your Picks', href: 'https://www.qvc.com/content/featured/my-recommendations.html' },
+  { label: 'New', href: 'https://www.qvc.com/collections/featured-new-this-month.html' },
+  { label: 'Trending Now', href: 'https://www.qvc.com/collections/featured-trending-today.html' },
+  { label: "Mother's Day Gift Guide", href: 'https://www.qvc.com/collections/holiday-mothers-day-gifts.html' },
+  { label: 'Clearance', href: 'https://www.qvc.com/collections/deals-clearance.html' },
+  { label: 'Garden', href: 'https://www.qvc.com/c/garden-and-outdoor-living/-/gq7tw6/c.html' },
+  { label: 'Fashion', href: 'https://www.qvc.com/c/fashion/-/lglt/c.html' },
+  { label: 'Beauty', href: 'https://www.qvc.com/c/beauty/-/rhty/c.html' },
+  { label: 'Jewelry', href: 'https://www.qvc.com/c/jewelry/-/mflu/c.html' },
+  { label: 'Shoes', href: 'https://www.qvc.com/c/shoes/-/1doux/c.html' },
+  { label: 'Bags', href: 'https://www.qvc.com/c/handbags-and-luggage/-/uoq0/c.html' },
+  { label: 'Home', href: 'https://www.qvc.com/c/for-the-home/-/lglu/c.html' },
+  { label: 'Electronics', href: 'https://www.qvc.com/c/electronics/-/lglw/c.html' },
+  { label: 'Kitchen', href: 'https://www.qvc.com/c/kitchen-and-food/-/lglv/c.html' },
+];
+
+function toggleMenu(nav, forceExpanded = null) {
   const expanded = forceExpanded !== null
     ? !forceExpanded
     : nav.getAttribute('aria-expanded') === 'true';
@@ -15,6 +32,24 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+function buildCategoryList(fragment) {
+  // Try to extract categories from the loaded fragment
+  const ul = fragment ? fragment.querySelector('ul') : null;
+  if (ul && ul.querySelectorAll('li').length > 0) return ul;
+
+  // Fallback: build from hardcoded data
+  const list = document.createElement('ul');
+  NAV_CATEGORIES.forEach(({ label, href }) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = href;
+    a.textContent = label;
+    li.append(a);
+    list.append(li);
+  });
+  return list;
+}
+
 /**
  * loads and decorates the header
  * @param {Element} block The header block element
@@ -22,30 +57,16 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  let fragment;
+  try {
+    fragment = await loadFragment(navPath);
+  } catch (e) {
+    // fragment load failed, continue with fallback
+  }
 
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
-  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-
-  // Label the 3 sections: brand, sections, tools
-  const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
-  });
-
-  // Clean up button classes on brand link
-  const navBrand = nav.querySelector('.nav-brand');
-  if (navBrand) {
-    const brandLink = navBrand.querySelector('.button');
-    if (brandLink) {
-      brandLink.className = '';
-      const container = brandLink.closest('.button-container');
-      if (container) container.className = '';
-    }
-  }
 
   // === ROW 1: Top promo bar ===
   const topBar = document.createElement('div');
@@ -59,10 +80,7 @@ export default async function decorate(block) {
   // Logo
   const logoArea = document.createElement('div');
   logoArea.className = 'nav-logo';
-  if (navBrand) {
-    const logoContent = navBrand.querySelector('p');
-    if (logoContent) logoArea.append(logoContent);
-  }
+  logoArea.innerHTML = '<a href="https://www.qvc.com/"><img src="https://qvc.scene7.com/is/image/QVC/qvc-logo-rebrand?fmt=png-alpha&wid=160" alt="QVC" width="160" height="52"></a>';
 
   // Main links (Shop, Watch, Items on Air)
   const mainLinks = document.createElement('div');
@@ -91,36 +109,27 @@ export default async function decorate(block) {
   // === ROW 3: Category bar ===
   const catBar = document.createElement('div');
   catBar.className = 'nav-category-bar';
+  catBar.append(buildCategoryList(fragment));
 
-  const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    const ul = navSections.querySelector('ul');
-    if (ul) catBar.append(ul);
-  }
-
-  // TSV & Deals link from tools section
-  const navTools = nav.querySelector('.nav-tools');
-  if (navTools) {
-    const tsvLink = navTools.querySelector('a');
-    if (tsvLink) {
-      tsvLink.className = 'nav-tsv-link';
-      catBar.append(tsvLink);
-    }
-  }
+  // TSV & Deals link
+  const tsvLink = document.createElement('a');
+  tsvLink.className = 'nav-tsv-link';
+  tsvLink.href = 'https://www.qvc.com/content/featured/tsv.html';
+  tsvLink.textContent = "Today's Special Value & Deals";
+  catBar.append(tsvLink);
 
   // Hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = '<button type="button" aria-controls="nav" aria-label="Open navigation"><span class="nav-hamburger-icon"></span></button>';
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  hamburger.addEventListener('click', () => toggleMenu(nav));
 
   // Assemble nav
-  nav.textContent = '';
   nav.append(topBar, mainBar, catBar, hamburger);
   nav.setAttribute('aria-expanded', 'false');
 
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  toggleMenu(nav, isDesktop.matches);
+  isDesktop.addEventListener('change', () => toggleMenu(nav, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
