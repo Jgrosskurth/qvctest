@@ -2,8 +2,28 @@
 
 /* Section heading styles */
 main .section .default-content-wrapper h2 {
-  margin-top: 16px;
-  margin-bottom: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: var(--heading-font-size-s);
+}
+
+main .section .default-content-wrapper h2 a {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+main .section .default-content-wrapper h2 a:hover {
+  color: var(--accent-color);
+}
+
+/* Center "Shop" CTA buttons in card sections */
+main .section .default-content-wrapper .button-wrapper {
+  text-align: center;
+}
+
+main .section .default-content-wrapper a.button.primary {
+  padding: 10px 32px;
+  font-size: var(--body-font-size-s);
 }
 
 /* Hide metadata section */
@@ -16,4 +36,21 @@ main > .section.hero-tsv-container {
   max-width: unset;
   padding: 0;
   margin: var(--section-spacing) auto;
+}
+
+/* Columns banner section - full width */
+main > .section.columns-banner-container {
+  max-width: unset;
+  padding: 0 32px;
+}
+
+/* Cards info section header text */
+main > .section.cards-info-container .default-content-wrapper {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+main > .section.cards-info-container .default-content-wrapper p {
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
 }

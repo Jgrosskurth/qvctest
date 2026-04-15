@@ -5,12 +5,13 @@
 .columns-banner > div {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .columns-banner .columns-banner-img-col {
   overflow: hidden;
   line-height: 0;
+  flex: 1;
 }
 
 .columns-banner img {
@@ -27,25 +28,25 @@
 
 .columns-banner a {
   display: block;
-  line-height: 1.4;
+  line-height: 0;
   color: var(--dark-color);
   text-decoration: none;
-  font-size: var(--body-font-size-s);
+}
+
+.columns-banner p {
+  margin: 0;
+  line-height: 0;
 }
 
 @media (width >= 600px) {
   .columns-banner > div {
     flex-direction: row;
-    gap: 20px;
-  }
-
-  .columns-banner .columns-banner-img-col {
-    flex: 1;
+    gap: 16px;
   }
 }
 
 @media (width >= 900px) {
   .columns-banner > div {
-    gap: 24px;
+    gap: 20px;
   }
 }

@@ -107,13 +107,12 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-/* ===== Brand / Logo bar ===== */
+/* ===== Brand / Logo ===== */
 header .nav-brand {
   order: 2;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
   min-height: 48px;
 }
 
@@ -127,7 +126,7 @@ header .nav-brand .default-content-wrapper > p {
 
 header .nav-brand .default-content-wrapper > p > a {
   font-family: var(--heading-font-family-bold);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--dark-color);
   letter-spacing: 2px;
@@ -140,18 +139,14 @@ header nav .nav-brand img {
   height: auto;
 }
 
-/* ===== Category Nav Bar (ul inside .nav-brand) ===== */
+/* ===== Category Nav Bar ===== */
 header .nav-brand .default-content-wrapper > ul {
   order: 2;
   display: none;
   list-style: none;
   margin: 0;
-  padding: 0 0 8px;
-  width: 100%;
-}
-
-header .nav-brand .default-content-wrapper > ul > li {
   padding: 0;
+  width: 100%;
 }
 
 header .nav-brand .default-content-wrapper > ul > li > a {
@@ -167,98 +162,40 @@ header .nav-brand .default-content-wrapper > ul > li > a:hover {
   color: var(--accent-color);
 }
 
-/* First link "Deals" gets coral color */
+/* "Deals" in coral */
 header .nav-brand .default-content-wrapper > ul > li:first-child > a {
   color: var(--accent-color);
   font-weight: 700;
 }
 
-/* Mobile expanded state: show nav links vertically */
-header nav[aria-expanded='true'] .nav-brand .default-content-wrapper > ul {
-  display: block;
-}
-
-header nav[aria-expanded='true'] {
-  flex-wrap: wrap;
-}
-
-header nav[aria-expanded='true'] .nav-brand {
-  flex-basis: 100%;
-  flex-wrap: wrap;
-}
-
-/* ===== Desktop: category bar as horizontal scrollable strip ===== */
-@media (width >= 900px) {
-  header .nav-wrapper {
-    position: sticky;
-    top: 0;
-  }
-
+/* Mobile: show categories as horizontal scroll below logo */
+@media (width < 900px) {
   header nav {
-    flex-wrap: wrap;
-    padding: 0 24px;
-    gap: 0;
-  }
-
-  header nav[aria-expanded='true'] {
-    flex-wrap: wrap;
+    position: relative;
+    padding-top: 0;
   }
 
   header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
+    position: absolute;
+    left: 16px;
+    top: 0;
+    z-index: 2;
   }
 
-  header .nav-brand,
-  header nav[aria-expanded='true'] .nav-brand {
-    flex-wrap: wrap;
+  header .nav-brand {
     flex-basis: 100%;
+    flex-wrap: wrap;
     justify-content: center;
+    min-height: auto;
   }
 
   header .nav-brand .default-content-wrapper > p {
-    width: 100%;
     text-align: center;
-    padding: 10px 0 6px;
-  }
-
-  header .nav-brand .default-content-wrapper > p > a {
-    font-size: 28px;
-  }
-
-  /* Override both default hidden and mobile expanded states */
-  header .nav-brand .default-content-wrapper > ul,
-  header nav[aria-expanded='true'] .nav-brand .default-content-wrapper > ul {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    justify-content: center;
     width: 100%;
-    border-top: 1px solid #e8e8e4;
-    padding: 0;
+    padding: 8px 0 4px;
   }
 
-  header .nav-brand .default-content-wrapper > ul::-webkit-scrollbar {
-    display: none;
-  }
-
-  header .nav-brand .default-content-wrapper > ul > li > a {
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-}
-
-@media (width >= 1200px) {
-  header .nav-brand .default-content-wrapper > ul > li > a {
-    padding: 10px 14px;
-    font-size: var(--body-font-size-s);
-  }
-}
-
-/* ===== Mobile: show nav as scrollable horizontal strip below logo ===== */
-@media (width < 900px) {
+  /* Always show categories as horizontal strip on mobile */
   header nav[aria-expanded='false'] .nav-brand .default-content-wrapper > ul {
     display: flex;
     overflow-x: auto;
@@ -266,11 +203,9 @@ header nav[aria-expanded='true'] .nav-brand {
     scrollbar-width: none;
     white-space: nowrap;
     border-top: 1px solid #e8e8e4;
-    padding: 0;
+    padding: 0 8px;
     width: 100vw;
     margin-left: -16px;
-    margin-right: -16px;
-    padding-left: 8px;
   }
 
   header nav[aria-expanded='false'] .nav-brand .default-content-wrapper > ul::-webkit-scrollbar {
@@ -282,34 +217,80 @@ header nav[aria-expanded='true'] .nav-brand {
     font-size: 12px;
   }
 
-  header nav[aria-expanded='false'] .nav-brand {
+  /* Mobile expanded: vertical list */
+  header nav[aria-expanded='true'] .nav-brand .default-content-wrapper > ul {
+    display: block;
+    padding-bottom: 8px;
+  }
+
+  header nav[aria-expanded='true'] .nav-brand {
     flex-basis: 100%;
     flex-wrap: wrap;
-    order: 2;
-    min-height: auto;
-    justify-content: center;
-  }
-
-  header nav[aria-expanded='false'] .nav-brand .default-content-wrapper > p {
-    text-align: center;
-    width: 100%;
-    padding: 8px 0 4px;
-  }
-
-  header nav[aria-expanded='false'] .nav-hamburger {
-    position: absolute;
-    left: 16px;
-    top: 0;
-    z-index: 2;
-  }
-
-  header nav[aria-expanded='false'] {
-    position: relative;
-    padding-top: 0;
   }
 }
 
-/* ===== Sections & Tools (hidden since content is in nav-brand) ===== */
+/* ===== Desktop ===== */
+@media (width >= 900px) {
+  header nav {
+    flex-flow: column nowrap;
+    padding: 0 24px;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  header nav .nav-hamburger {
+    display: none;
+  }
+
+  /* Top row: Logo left-aligned */
+  header .nav-brand {
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+
+  header .nav-brand .default-content-wrapper > p {
+    width: auto;
+    text-align: left;
+    padding: 8px 0 4px;
+  }
+
+  header .nav-brand .default-content-wrapper > p > a {
+    font-size: 26px;
+  }
+
+  /* Category nav strip below logo */
+  header .nav-brand .default-content-wrapper > ul,
+  header nav[aria-expanded='true'] .nav-brand .default-content-wrapper > ul {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    width: 100%;
+    border-top: 1px solid #e8e8e4;
+    padding: 0;
+  }
+
+  header .nav-brand .default-content-wrapper > ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  header .nav-brand .default-content-wrapper > ul > li > a {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (width >= 1200px) {
+  header .nav-brand .default-content-wrapper > ul > li > a {
+    padding: 8px 14px;
+    font-size: var(--body-font-size-s);
+  }
+}
+
+/* ===== Hide sections & tools ===== */
 header nav .nav-sections {
   display: none;
 }
