@@ -141,6 +141,24 @@ export function moveInstrumentation(source, target) {
   }
 }
 
+/**
+ * Optimizes LCP by setting fetchpriority on first visible image
+ * and adding explicit dimensions to prevent CLS.
+ * @param {Element} main The main element
+ */
+function optimizeLCP(main) {
+  const firstSection = main.querySelector('.section:first-of-type');
+  if (firstSection) {
+    const firstImg = firstSection.querySelector('img');
+    if (firstImg) {
+      firstImg.setAttribute('fetchpriority', 'high');
+      firstImg.removeAttribute('loading');
+      if (!firstImg.getAttribute('width')) firstImg.setAttribute('width', '2600');
+      if (!firstImg.getAttribute('height')) firstImg.setAttribute('height', '500');
+    }
+  }
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
@@ -148,6 +166,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  optimizeLCP(main);
 }
 
 /**
