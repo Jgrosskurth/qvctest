@@ -5,6 +5,7 @@ main .section .default-content-wrapper h2 {
   margin-top: 8px;
   margin-bottom: 8px;
   font-size: var(--heading-font-size-s);
+  font-weight: 400;
 }
 
 main .section .default-content-wrapper h2 a {
@@ -38,19 +39,42 @@ main > .section.hero-tsv-container {
   margin: var(--section-spacing) auto;
 }
 
-/* Columns banner section - full width */
+/* Columns banner section */
 main > .section.columns-banner-container {
-  max-width: unset;
-  padding: 0 32px;
+  max-width: var(--content-max-width);
+  padding: 0 24px;
 }
 
-/* Cards info section header text */
+/* ===== Watch & Shop (cards-info) section - dark navy background ===== */
+main > .section.cards-info-container {
+  max-width: unset;
+  background-color: var(--dark-color);
+  padding: 32px 24px;
+  margin: var(--section-spacing) auto;
+}
+
 main > .section.cards-info-container .default-content-wrapper {
   text-align: center;
-  margin-bottom: 12px;
+  margin: 0 auto 16px;
+  max-width: var(--content-max-width);
+}
+
+main > .section.cards-info-container .default-content-wrapper h2 {
+  color: var(--background-color);
 }
 
 main > .section.cards-info-container .default-content-wrapper p {
-  color: var(--text-color);
+  color: rgb(255 255 255 / 80%);
   font-size: var(--body-font-size-s);
+}
+
+main > .section.cards-info-container .cards-info-wrapper {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+@media (width >= 900px) {
+  main > .section.cards-info-container {
+    padding: 40px 32px;
+  }
 }

@@ -20,6 +20,7 @@
   display: block;
   object-fit: cover;
   transition: transform 0.3s ease;
+  border-radius: 8px;
 }
 
 .columns-banner .columns-banner-img-col:hover img {
@@ -28,14 +29,14 @@
 
 .columns-banner a {
   display: block;
-  line-height: 0;
   color: var(--dark-color);
   text-decoration: none;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
 }
 
 .columns-banner p {
   margin: 0;
-  line-height: 0;
 }
 
 @media (width >= 600px) {
