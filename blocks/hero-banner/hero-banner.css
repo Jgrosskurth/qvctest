@@ -1,40 +1,32 @@
 /* Hero Banner - Full-width linked image banner */
 
-/* DOM: section.hero-banner > div > div > div > p > a > picture > img */
+/* Decorated DOM: .hero-banner.block > div > div > picture > img */
 
-/* The section itself IS the block */
-.hero-banner.section {
+.hero-banner {
   position: relative;
   display: block;
   overflow: hidden;
   line-height: 0;
 }
 
-/* Full width override */
-main > .hero-banner.section {
-  max-width: unset;
-  padding: 0;
-  margin: 0;
-}
-
-.hero-banner.section picture {
+.hero-banner picture {
   display: block;
   width: 100%;
 }
 
-.hero-banner.section img {
+.hero-banner img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.hero-banner.section a {
+.hero-banner a {
   display: block;
   line-height: 0;
 }
 
-.hero-banner.section p {
+.hero-banner p {
   margin: 0;
   line-height: 0;
 }

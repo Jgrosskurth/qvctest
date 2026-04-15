@@ -1,14 +1,21 @@
 /* Cards Info - 6-column info cards with icon + heading + description */
 
-/* DOM: section.cards-info > div(card) > div > (div[picture] + div[h3+p]) */
+/* Decorated DOM: .cards-info.block > ul > li > div.cards-info-card-image + div.cards-info-card-body */
 
-main > .cards-info.section {
+.cards-info {
+  padding: 0;
+}
+
+.cards-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
-.cards-info.section > div {
+.cards-info li {
   background-color: var(--background-color);
   border: 1px solid var(--light-color);
   padding: 24px 16px;
@@ -19,17 +26,17 @@ main > .cards-info.section {
   transition: box-shadow 0.2s ease;
 }
 
-.cards-info.section > div:hover {
+.cards-info li:hover {
   box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
 }
 
 /* Image cell */
-.cards-info.section > div > div > div:first-child {
+.cards-info .cards-info-card-image {
   line-height: 0;
   margin-bottom: 16px;
 }
 
-.cards-info.section img {
+.cards-info img {
   width: 48px;
   height: 48px;
   object-fit: contain;
@@ -37,13 +44,9 @@ main > .cards-info.section {
 }
 
 /* Text cell */
-.cards-info.section > div > div > div:last-child {
-  padding: 0;
-}
-
-.cards-info.section > div > div > div:last-child h3,
-.cards-info.section > div > div > div:last-child h4,
-.cards-info.section > div > div > div:last-child h5 {
+.cards-info .cards-info-card-body h3,
+.cards-info .cards-info-card-body h4,
+.cards-info .cards-info-card-body h5 {
   margin: 0 0 8px;
   color: var(--dark-color);
   font-family: var(--heading-font-family);
@@ -51,45 +54,45 @@ main > .cards-info.section {
   line-height: 1.3;
 }
 
-.cards-info.section > div > div > div:last-child p {
+.cards-info .cards-info-card-body p {
   margin: 0;
   color: var(--text-color);
   font-size: var(--body-font-size-s);
   line-height: 1.5;
 }
 
-.cards-info.section a {
+.cards-info a {
   color: var(--accent-color);
   text-decoration: none;
 }
 
-.cards-info.section a:hover {
+.cards-info a:hover {
   color: var(--accent-dark);
   text-decoration: underline;
 }
 
 @media (width >= 600px) {
-  main > .cards-info.section {
+  .cards-info ul {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
-  .cards-info.section > div {
+  .cards-info li {
     padding: 28px 20px;
   }
 }
 
 @media (width >= 900px) {
-  main > .cards-info.section {
+  .cards-info ul {
     grid-template-columns: repeat(6, 1fr);
     gap: 24px;
   }
 
-  .cards-info.section > div {
+  .cards-info li {
     padding: 32px 16px;
   }
 
-  .cards-info.section img {
+  .cards-info img {
     width: 56px;
     height: 56px;
   }

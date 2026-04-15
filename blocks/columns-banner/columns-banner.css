@@ -1,19 +1,19 @@
 /* Columns Banner - 2-column side-by-side promo images */
 
-/* DOM: section.columns-banner > div > div > (div[a>picture+text] + div[a>picture+text]) */
+/* Decorated DOM: .columns-banner.block.columns-banner-2-cols > div > div.columns-banner-img-col */
 
-.columns-banner.section > div > div {
+.columns-banner > div {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.columns-banner.section > div > div > div {
+.columns-banner .columns-banner-img-col {
   overflow: hidden;
   line-height: 0;
 }
 
-.columns-banner.section img {
+.columns-banner img {
   width: 100%;
   height: auto;
   display: block;
@@ -21,11 +21,11 @@
   transition: transform 0.3s ease;
 }
 
-.columns-banner.section > div > div > div:hover img {
+.columns-banner .columns-banner-img-col:hover img {
   transform: scale(1.02);
 }
 
-.columns-banner.section a {
+.columns-banner a {
   display: block;
   line-height: 1.4;
   color: var(--dark-color);
@@ -34,18 +34,18 @@
 }
 
 @media (width >= 600px) {
-  .columns-banner.section > div > div {
+  .columns-banner > div {
     flex-direction: row;
     gap: 20px;
   }
 
-  .columns-banner.section > div > div > div {
+  .columns-banner .columns-banner-img-col {
     flex: 1;
   }
 }
 
 @media (width >= 900px) {
-  .columns-banner.section > div > div {
+  .columns-banner > div {
     gap: 24px;
   }
 }

@@ -117,6 +117,30 @@ function decorateButtons(main) {
  * Decorates the main element.
  * @param {Element} main The main element
  */
+/**
+ * Fetches placeholders from the spreadsheet.
+ * @returns {Promise<Object>} The placeholders object
+ */
+export async function fetchPlaceholders() {
+  return {};
+}
+
+/**
+ * Moves instrumentation attributes from source to target element.
+ * @param {Element} source The source element
+ * @param {Element} target The target element
+ */
+export function moveInstrumentation(source, target) {
+  if (source && target) {
+    [...source.attributes].forEach((attr) => {
+      if (attr.name.startsWith('data-aue-') || attr.name.startsWith('data-richtext-')) {
+        target.setAttribute(attr.name, attr.value);
+        source.removeAttribute(attr.name);
+      }
+    });
+  }
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);

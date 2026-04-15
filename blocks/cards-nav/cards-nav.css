@@ -1,36 +1,43 @@
 /* Cards Nav - 4-column linked cards with images and text */
 
-/* DOM: section.cards-nav > div(card) > div > (div[picture] + div[p>a]) */
+/* Decorated DOM: .cards-nav.block > ul > li > div.cards-nav-card-image + div.cards-nav-card-body */
 
-main > .cards-nav.section {
+.cards-nav {
+  padding: 0;
+}
+
+.cards-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
-.cards-nav.section > div {
+.cards-nav li {
   background-color: var(--background-color);
   overflow: hidden;
   transition: box-shadow 0.2s ease;
 }
 
-.cards-nav.section > div:hover {
+.cards-nav li:hover {
   box-shadow: 0 2px 12px rgb(0 0 0 / 12%);
 }
 
-.cards-nav.section > div a {
+.cards-nav li a {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
 /* Image cell */
-.cards-nav.section > div > div > div:first-child {
+.cards-nav .cards-nav-card-image {
   line-height: 0;
   overflow: hidden;
 }
 
-.cards-nav.section img {
+.cards-nav img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -38,16 +45,16 @@ main > .cards-nav.section {
   transition: transform 0.3s ease;
 }
 
-.cards-nav.section > div:hover img {
+.cards-nav li:hover img {
   transform: scale(1.03);
 }
 
 /* Text cell */
-.cards-nav.section > div > div > div:last-child {
+.cards-nav .cards-nav-card-body {
   padding: 12px 16px 16px;
 }
 
-.cards-nav.section > div > div > div:last-child p {
+.cards-nav .cards-nav-card-body p {
   margin: 0;
   color: var(--dark-color);
   font-family: var(--body-font-family);
@@ -57,19 +64,19 @@ main > .cards-nav.section {
 }
 
 @media (width >= 600px) {
-  main > .cards-nav.section {
+  .cards-nav ul {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 }
 
 @media (width >= 900px) {
-  main > .cards-nav.section {
+  .cards-nav ul {
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
   }
 
-  .cards-nav.section > div > div > div:last-child p {
+  .cards-nav .cards-nav-card-body p {
     font-size: var(--body-font-size-m);
   }
 }

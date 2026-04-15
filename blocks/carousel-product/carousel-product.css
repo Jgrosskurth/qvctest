@@ -1,22 +1,33 @@
-/* Carousel Product - Product carousel/grid with image, name, price */
+/* Carousel Product - Product carousel with image, name, price */
 
-/* DOM: section.carousel-product > div(product) > div > (div[picture] + div[h3+p+p]) */
+/* Decorated DOM: .carousel-product.block > .carousel-product-slides-container > .carousel-product-slides > li.carousel-product-slide */
 
-/* No JS carousel decoration - render as a horizontal scroll or grid */
+.carousel-product {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
 
-main > .carousel-product.section {
+.carousel-product .carousel-product-slides-container {
+  position: relative;
+}
+
+.carousel-product .carousel-product-slides {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 0;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.carousel-product.section::-webkit-scrollbar {
+.carousel-product .carousel-product-slides::-webkit-scrollbar {
   display: none;
 }
 
-.carousel-product.section > div {
+.carousel-product .carousel-product-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
   display: flex;
@@ -28,18 +39,18 @@ main > .carousel-product.section {
 }
 
 /* Image */
-.carousel-product.section > div > div > div:first-child {
+.carousel-product .carousel-product-slide-image {
   width: 100%;
   line-height: 0;
   margin-bottom: 16px;
 }
 
-.carousel-product.section picture {
+.carousel-product picture {
   display: block;
   width: 100%;
 }
 
-.carousel-product.section img {
+.carousel-product img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -47,15 +58,15 @@ main > .carousel-product.section {
 }
 
 /* Content */
-.carousel-product.section > div > div > div:last-child {
+.carousel-product .carousel-product-slide-content {
   width: 100%;
   text-align: center;
   padding: 0 16px;
   box-sizing: border-box;
 }
 
-.carousel-product.section h3,
-.carousel-product.section h4 {
+.carousel-product h3,
+.carousel-product h4 {
   color: var(--dark-color);
   font-family: var(--heading-font-family);
   font-size: var(--body-font-size-m);
@@ -64,43 +75,116 @@ main > .carousel-product.section {
   line-height: 1.3;
 }
 
-.carousel-product.section p {
+.carousel-product p {
   color: var(--text-color);
   font-size: var(--body-font-size-s);
   margin: 4px 0;
   line-height: 1.4;
 }
 
-.carousel-product.section strong {
+.carousel-product strong {
   color: var(--sale-color);
   font-size: var(--body-font-size-m);
 }
 
-.carousel-product.section s {
+.carousel-product s {
   color: var(--text-color);
   opacity: 0.7;
   font-size: var(--body-font-size-s);
 }
 
-.carousel-product.section a {
+.carousel-product a {
   color: var(--accent-color);
   text-decoration: none;
   font-size: var(--body-font-size-s);
 }
 
-.carousel-product.section a:hover {
+.carousel-product a:hover {
   color: var(--accent-dark);
   text-decoration: underline;
 }
 
+/* Navigation buttons */
+.carousel-product .carousel-product-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carousel-product .slide-prev,
+.carousel-product .slide-next {
+  pointer-events: auto;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: var(--background-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+}
+
+.carousel-product .slide-prev::after,
+.carousel-product .slide-next::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--dark-color);
+  border-right: 2px solid var(--dark-color);
+}
+
+.carousel-product .slide-prev::after {
+  transform: rotate(-135deg);
+  margin-left: 3px;
+}
+
+.carousel-product .slide-next::after {
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+/* Slide indicators */
+.carousel-product .carousel-product-slide-indicators {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carousel-product .carousel-product-slide-indicator button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-color);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.carousel-product .carousel-product-slide-indicator button[disabled] {
+  background: var(--dark-color);
+}
+
 @media (width >= 600px) {
-  .carousel-product.section > div {
+  .carousel-product .carousel-product-slide {
     flex: 0 0 50%;
   }
 }
 
 @media (width >= 900px) {
-  .carousel-product.section > div {
+  .carousel-product .carousel-product-slide {
     flex: 0 0 25%;
     padding: 20px;
   }

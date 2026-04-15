@@ -309,15 +309,34 @@ main > .section > div {
   /* wrapper divs inside sections need no extra width constraint */
 }
 
+/* First section (hero banner image) - full width */
 main > .section:first-of-type {
+  max-width: unset;
+  padding: 0;
   margin-top: 0;
 }
 
 /* Full-width sections override */
-main > .section.hero-banner,
-main > .section.hero-tsv {
+main > .section.hero-banner-container,
+main > .section.hero-tsv-container {
   max-width: unset;
   padding: 0;
+}
+
+main > .section:first-of-type .default-content-wrapper {
+  line-height: 0;
+}
+
+main > .section:first-of-type .default-content-wrapper picture {
+  display: block;
+  width: 100%;
+}
+
+main > .section:first-of-type .default-content-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 @media (width >= 900px) {
@@ -325,8 +344,12 @@ main > .section.hero-tsv {
     padding: 0 32px;
   }
 
-  main > .section.hero-banner,
-  main > .section.hero-tsv {
+  main > .section.hero-banner-container,
+  main > .section.hero-tsv-container {
+    padding: 0;
+  }
+
+  main > .section:first-of-type {
     padding: 0;
   }
 }

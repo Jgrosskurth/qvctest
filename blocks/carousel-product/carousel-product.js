@@ -1,5 +1,4 @@
-import { fetchPlaceholders } from '../../scripts/aem.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { fetchPlaceholders, moveInstrumentation } from '../../scripts/scripts.js';
 
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel-product');

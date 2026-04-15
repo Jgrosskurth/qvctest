@@ -1,14 +1,21 @@
 /* Cards Category - Category icon grid with circular/rounded images */
 
-/* DOM: section.cards-category > div(card) > div > (div[picture] + div[p>a]) */
+/* Decorated DOM: .cards-category.block > ul > li > div.cards-category-card-image + div.cards-category-card-body */
 
-main > .cards-category.section {
+.cards-category {
+  padding: 0;
+}
+
+.cards-category ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
-.cards-category.section > div {
+.cards-category li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,11 +24,11 @@ main > .cards-category.section {
   transition: transform 0.2s ease;
 }
 
-.cards-category.section > div:hover {
+.cards-category li:hover {
   transform: translateY(-2px);
 }
 
-.cards-category.section > div a {
+.cards-category li a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,12 +37,12 @@ main > .cards-category.section {
 }
 
 /* Image cell */
-.cards-category.section > div > div > div:first-child {
+.cards-category .cards-category-card-image {
   line-height: 0;
   margin-bottom: 12px;
 }
 
-.cards-category.section img {
+.cards-category img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -45,16 +52,12 @@ main > .cards-category.section {
   transition: border-color 0.2s ease;
 }
 
-.cards-category.section > div:hover img {
+.cards-category li:hover img {
   border-color: var(--accent-color);
 }
 
 /* Text cell */
-.cards-category.section > div > div > div:last-child {
-  padding: 0;
-}
-
-.cards-category.section > div > div > div:last-child p {
+.cards-category .cards-category-card-body p {
   margin: 0;
   color: var(--dark-color);
   font-family: var(--body-font-family);
@@ -63,33 +66,33 @@ main > .cards-category.section {
 }
 
 @media (width >= 600px) {
-  main > .cards-category.section {
+  .cards-category ul {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
 
-  .cards-category.section img {
+  .cards-category img {
     width: 96px;
     height: 96px;
   }
 
-  .cards-category.section > div > div > div:last-child p {
+  .cards-category .cards-category-card-body p {
     font-size: var(--body-font-size-s);
   }
 }
 
 @media (width >= 900px) {
-  main > .cards-category.section {
+  .cards-category ul {
     grid-template-columns: repeat(6, 1fr);
     gap: 24px;
   }
 
-  .cards-category.section img {
+  .cards-category img {
     width: 112px;
     height: 112px;
   }
 
-  .cards-category.section > div > div > div:last-child p {
+  .cards-category .cards-category-card-body p {
     font-size: var(--body-font-size-m);
   }
 }
