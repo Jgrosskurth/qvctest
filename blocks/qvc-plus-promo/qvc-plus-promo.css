@@ -1,0 +1,105 @@
+/* QVC+ Promo Block — full-width dark banner with image + text side by side */
+
+.qvc-plus-promo-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.qvc-plus-promo {
+  --promo-bg: #fff;
+  --promo-text: #4a4a44;
+  --promo-btn-bg: #28334a;
+  --promo-btn-color: #fff;
+  --promo-padding: 15px 12px;
+
+  background: var(--promo-bg);
+  color: var(--promo-text);
+  padding: var(--promo-padding);
+}
+
+.qvc-plus-promo > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--content-max-width, 1164px);
+  margin: 0 auto;
+}
+
+.qvc-plus-promo > div > div {
+  box-sizing: border-box;
+}
+
+/* Image cell */
+.qvc-plus-promo > div > div:first-child {
+  width: 100%;
+}
+
+.qvc-plus-promo > div > div:first-child p {
+  margin: 0;
+  line-height: 0;
+}
+
+.qvc-plus-promo > div > div:first-child img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text cell */
+.qvc-plus-promo > div > div:last-child {
+  width: 100%;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qvc-plus-promo > div > div:last-child p {
+  color: var(--promo-text);
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 12px;
+}
+
+.qvc-plus-promo > div > div:last-child em {
+  font-style: italic;
+}
+
+/* Button override — primary CTA (filled dark navy) */
+main .qvc-plus-promo a.button:any-link {
+  background: var(--promo-btn-bg);
+  border: 1px solid var(--promo-btn-bg);
+  color: var(--promo-btn-color);
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+main .qvc-plus-promo a.button:any-link:hover {
+  opacity: 0.9;
+}
+
+main .qvc-plus-promo .button-wrapper {
+  margin: 8px 0 0;
+}
+
+@media (width >= 900px) {
+  .qvc-plus-promo > div {
+    flex-direction: row;
+  }
+
+  .qvc-plus-promo > div > div:first-child {
+    width: 50%;
+    flex-shrink: 0;
+  }
+
+  .qvc-plus-promo > div > div:last-child {
+    width: 50%;
+    padding: 0 12px 0 24px;
+  }
+}

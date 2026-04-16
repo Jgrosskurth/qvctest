@@ -1,0 +1,106 @@
+/* Watch & Shop Block */
+.watch-and-shop {
+  --ws-title-size: 20px;
+  --ws-desc-size: 14px;
+  --ws-title-color: #4a4a44;
+  --ws-desc-color: #4a4a44;
+  --ws-img-size: 170px;
+  --ws-gap: 24px;
+  padding: 12px 0;
+}
+
+/* Card rows */
+.watch-and-shop > div {
+  text-align: center;
+}
+
+/* Card link wrapper */
+.watch-and-shop a.watch-and-shop-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.watch-and-shop a.watch-and-shop-card:hover {
+  color: var(--link-hover-color, #f47963);
+}
+
+/* Image cell */
+.watch-and-shop .watch-and-shop-img {
+  width: var(--ws-img-size);
+  height: var(--ws-img-size);
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.watch-and-shop .watch-and-shop-img picture,
+.watch-and-shop .watch-and-shop-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Remove the p tag wrapping images */
+.watch-and-shop .watch-and-shop-img p {
+  margin: 0;
+  line-height: 0;
+}
+
+/* Text cell */
+.watch-and-shop .watch-and-shop-text h3 {
+  font-size: var(--ws-title-size);
+  font-weight: 400;
+  color: var(--ws-title-color);
+  margin: 12px 0 0;
+  line-height: 1.3;
+}
+
+.watch-and-shop .watch-and-shop-text p {
+  font-size: var(--ws-desc-size);
+  color: var(--ws-desc-color);
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+/* Mobile: 2 per row */
+@media (width < 600px) {
+  .watch-and-shop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--ws-gap);
+  }
+
+  .watch-and-shop {
+    --ws-img-size: 120px;
+  }
+}
+
+/* Tablet */
+@media (width >= 600px) and (width < 900px) {
+  .watch-and-shop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--ws-gap);
+  }
+}
+
+/* Desktop: 6 across */
+@media (width >= 900px) {
+  .watch-and-shop {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--ws-gap);
+    max-width: var(--content-max-width, 1164px);
+    margin: 0 auto;
+  }
+
+  .watch-and-shop > div {
+    flex: 0 1 auto;
+    min-width: 0;
+    width: 170px;
+  }
+}

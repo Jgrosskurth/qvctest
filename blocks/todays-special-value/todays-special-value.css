@@ -1,0 +1,126 @@
+/* Today's Special Value block */
+.todays-special-value-wrapper {
+  max-width: var(--content-max-width, 1164px) !important;
+  margin: 0 auto;
+  padding: 0 12px !important;
+  box-sizing: border-box;
+}
+
+.todays-special-value {
+  --tsv-bg: #fff;
+  --tsv-text: #4a4a44;
+  --tsv-heading-color: #28334a;
+  --tsv-promo-color: #b02124;
+  --tsv-timer-bg: #da291c;
+  --tsv-timer-color: #fff;
+  --tsv-btn-bg: #28334a;
+  --tsv-btn-color: #fff;
+
+  background: var(--tsv-bg);
+  color: var(--tsv-text);
+  padding: 15px 0;
+}
+
+/* Row: image + text side by side */
+.todays-special-value > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Image cell */
+.todays-special-value > div > div:first-child {
+  flex: 0 0 auto;
+}
+
+.todays-special-value > div > div:first-child picture {
+  display: block;
+}
+
+.todays-special-value > div > div:first-child img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Text cell */
+.todays-special-value > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 12px;
+}
+
+/* Timer badge */
+.todays-special-value .tsv-timer {
+  display: inline-block;
+  background: var(--tsv-timer-bg);
+  color: var(--tsv-timer-color);
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+/* Heading */
+.todays-special-value h3 {
+  font-size: 28px;
+  font-weight: 100;
+  line-height: 1;
+  color: var(--tsv-heading-color);
+  margin: 0 0 15px;
+}
+
+/* Promo line */
+.todays-special-value .tsv-promo {
+  color: var(--tsv-promo-color);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Shop Now button */
+main .todays-special-value a.button:any-link {
+  display: inline-block;
+  background: var(--tsv-btn-bg);
+  color: var(--tsv-btn-color);
+  border: 1px solid var(--tsv-btn-bg);
+  border-radius: 0;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+main .todays-special-value a.button:any-link:hover {
+  background: var(--accent-dark, #d34422);
+  border-color: var(--accent-dark, #d34422);
+}
+
+@media (width >= 900px) {
+  .todays-special-value > div {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  /* Image takes 75% */
+  .todays-special-value > div > div:first-child {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  /* Text takes 25% */
+  .todays-special-value > div > div:last-child {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 12px;
+  }
+}

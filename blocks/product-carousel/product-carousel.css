@@ -1,0 +1,165 @@
+/* Product Carousel Block — QVC category teaser strip */
+
+.product-carousel-wrapper {
+  max-width: var(--content-max-width, 1164px);
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.product-carousel {
+  --carousel-bg: #fff;
+  --carousel-heading-color: #28334a;
+  --carousel-text-color: #4a4a44;
+  --carousel-link-color: #28334a;
+  --carousel-card-size: 267px;
+  --carousel-gap: 24px;
+  --carousel-title-size: 20px;
+
+  background: var(--carousel-bg);
+  color: var(--carousel-text-color);
+  padding: 0;
+}
+
+/* --- Header row (first row) --- */
+.product-carousel > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.product-carousel > div:first-child > div {
+  width: 100%;
+}
+
+.product-carousel > div:first-child h2 {
+  font-size: 26px;
+  font-weight: 100;
+  color: var(--carousel-heading-color);
+  margin: 0 0 5px;
+  font-family: var(--heading-font-family, sans-serif);
+}
+
+.product-carousel > div:first-child h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-carousel > div:first-child h2 a:hover {
+  color: var(--link-hover-color, #f47963);
+}
+
+.product-carousel > div:first-child p {
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: var(--carousel-text-color);
+}
+
+/* Shop link as tertiary CTA — positioned to the right of heading */
+main .product-carousel > div:first-child > div {
+  position: relative;
+}
+
+main .product-carousel > div:first-child .shop-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  color: var(--carousel-link-color);
+  text-decoration: underline;
+}
+
+main .product-carousel > div:first-child .shop-link:hover {
+  color: var(--link-hover-color, #f47963);
+}
+
+/* --- Cards container --- */
+.product-carousel .cards-container {
+  display: flex;
+  gap: var(--carousel-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.product-carousel .cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Individual card --- */
+.product-carousel .card {
+  flex: 0 0 var(--carousel-card-size);
+  scroll-snap-align: start;
+  text-align: left;
+}
+
+.product-carousel .card a {
+  text-decoration: none;
+  color: var(--carousel-text-color);
+  display: block;
+}
+
+.product-carousel .card a:hover {
+  color: var(--link-hover-color, #f47963);
+}
+
+.product-carousel .card picture {
+  display: block;
+  line-height: 0;
+}
+
+.product-carousel .card img {
+  display: block;
+  width: var(--carousel-card-size);
+  height: var(--carousel-card-size);
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.product-carousel .card .card-title {
+  font-size: var(--carousel-title-size);
+  font-weight: 400;
+  color: var(--carousel-text-color);
+  margin-top: 12px;
+  line-height: 1.3;
+}
+
+/* Reset any EDS button auto-decoration inside cards */
+main .product-carousel .button-container {
+  display: inline;
+}
+
+main .product-carousel a.button:any-link {
+  background: none;
+  border: none;
+  color: var(--carousel-text-color);
+  font-size: var(--carousel-title-size);
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+}
+
+main .product-carousel a.button:any-link:hover {
+  color: var(--link-hover-color, #f47963);
+}
+
+/* --- Responsive --- */
+@media (width < 600px) {
+  .product-carousel {
+    --carousel-card-size: 200px;
+    --carousel-gap: 16px;
+    --carousel-title-size: 16px;
+  }
+}
+
+@media (width >= 600px) and (width < 900px) {
+  .product-carousel {
+    --carousel-card-size: 230px;
+  }
+}

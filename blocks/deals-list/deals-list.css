@@ -1,0 +1,142 @@
+/* Section heading — "Our Don't-Miss Deal List" + "Shop the Deals" on same line */
+.deals-list-container .default-content-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.deals-list-container .default-content-wrapper h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 100;
+}
+
+.deals-list-container .default-content-wrapper p {
+  margin: 0;
+}
+
+.deals-list-container .default-content-wrapper a {
+  font-size: 16px;
+  color: var(--link-color, #28334a);
+  text-decoration: underline;
+}
+
+/* deals-list block */
+.deals-list {
+  --deals-bg: #fff;
+  --deals-text: #4a4a44;
+  --deals-heading-color: #28334a;
+  --deals-sale-color: #da291c;
+  --deals-badge-bg: #da291c;
+  --deals-badge-color: #fff;
+  --deals-gap: 16px;
+
+  background: var(--deals-bg);
+  color: var(--deals-text);
+  padding: 0 0 24px;
+
+  /* Grid on the block itself — each child div is a product card */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--deals-gap);
+}
+
+@media (width >= 900px) {
+  .deals-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Each row = a product card */
+.deals-list > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image cell (first cell in each row) */
+.deals-list > div > div:first-child {
+  background: #fff;
+  overflow: hidden;
+  aspect-ratio: 1 / 0.89;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deals-list > div > div:first-child picture,
+.deals-list > div > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Text cell (second cell in each row) */
+.deals-list > div > div:last-child {
+  padding: 8px 0;
+}
+
+/* Badge — first <p> in text cell */
+.deals-list > div > div:last-child p:first-child {
+  display: inline-block;
+  background: var(--deals-badge-bg);
+  color: var(--deals-badge-color);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 3px 8px;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+/* Product name */
+.deals-list h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--deals-text);
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.deals-list h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.deals-list h3 a:hover {
+  text-decoration: underline;
+}
+
+/* Sale price — third <p> in text cell */
+.deals-list > div > div:last-child p:nth-child(3) {
+  font-size: 20px;
+  color: var(--deals-sale-color);
+  margin: 4px 0 2px;
+  font-weight: 400;
+}
+
+/* Original (strikethrough) price — fourth <p> in text cell */
+.deals-list > div > div:last-child p:nth-child(4) {
+  font-size: 14px;
+  color: var(--deals-text);
+  margin: 0;
+  opacity: 0.7;
+}
+
+.deals-list > div > div:last-child p:nth-child(4) s {
+  text-decoration: line-through;
+}
+
+/* Reset button decoration on links inside this block */
+main .deals-list .button-container { display: inline; }
+main .deals-list a.button:any-link {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+}

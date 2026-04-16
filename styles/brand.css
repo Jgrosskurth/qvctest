@@ -1,0 +1,12 @@
+:root {
+  --heading-font-family: "TT Norms Medium", Arial, Helvetica, sans-serif;
+  --body-font-family: "TT Norms Medium", Arial, Helvetica, sans-serif;
+  --background-color: #fff;
+  --text-color: rgb(74, 74, 68);
+  --link-color: rgb(74, 74, 68);
+  --link-hover-color: rgb(74, 74, 68);
+  --section-padding: 0px;
+  --nav-height: 139px;
+}
+
+html, body { overflow: auto !important; }

@@ -222,10 +222,14 @@ footer .footer-bottom a:hover {
 }
 
 /* QVC in bottom bar */
+footer .footer-bottom p:first-child {
+  margin-bottom: 4px;
+}
+
 footer .footer-bottom p:first-child a:first-child {
   font-family: var(--heading-font-family-bold);
   font-weight: 700;
-  font-size: var(--body-font-size-s);
+  font-size: var(--heading-font-size-m);
   letter-spacing: 1px;
 }
 
@@ -236,4 +240,23 @@ footer .footer-bottom p:nth-child(2) {
   color: var(--dark-color);
   font-style: italic;
   margin: 12px 0;
+}
+
+/* Policies & International links at bottom */
+footer .footer-bottom p:nth-last-child(2),
+footer .footer-bottom p:last-child {
+  font-size: var(--body-font-size-xs);
+  color: #6b6b65;
+  line-height: 2;
+}
+
+footer .footer-bottom p:nth-last-child(2) a,
+footer .footer-bottom p:last-child a {
+  font-size: var(--body-font-size-xs);
+  color: #6b6b65;
+}
+
+footer .footer-bottom p:nth-last-child(2) a:hover,
+footer .footer-bottom p:last-child a:hover {
+  color: var(--accent-color);
 }
